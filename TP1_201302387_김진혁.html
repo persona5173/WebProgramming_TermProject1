@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP1 jinhyek OnePageHomage</title>
+    <!-- CSS, JS External 정의 -->
+    <link rel="stylesheet" type="text/css" href="./css/TP1_CSS_SKELETON.css">
+</head>
+
+<body>
+    <!-- chart.js를 사용하기 위한 script -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/chalk.js"></script>
+
+    <!-- 주제에 따른 javascript 파일 경로 설정 -->
+    <script src="./js/IntroScript.js"></script>
+    <script src="./js/SlideScript.js"></script>
+    <script src="./js/MenuScript.js"></script>
+    <script src="./js/GalleryScript.js"></script>
+    <script src="./js/GuestScript.js"></script>
+    <!-- 레이아웃은 HTML5 엘리먼트를 사용할 것 -->
+
+    <header>
+        <!-- Header (Menu bar) -->
+        <div class="Bar">
+            <button class="Menu" onclick="MoveToMenu('main-content')">HOME</button>
+            <button class="Menu" onclick="MoveToMenu('ImageSlide')">IMAGE SLIDE</button>
+            <button class="Menu" onclick="MoveToMenu('Introduce')">INTRODUCE</button>
+            <button class="Menu" onclick="MoveToMenu('Gallery')">GALLERY</button>
+            <button class="Menu" onclick="MoveToMenu('Guestbook')">GUEST BOOK</button>
+            <!-- dropdown 구현 부분 -->
+            <button class="Menu" onclick="Dropdown_visible()"><img  id = "dropdown" src= "./img/DropDown/DropDown_menu_icon.png"></button>
+
+            <ul class="Dropdown-list" id="Dropdown-list">
+                <li onclick="MoveToMenu('main-content')">HOME</li>
+                <li onclick="MoveToMenu('ImageSlide')">IMAGE SLIDE</li>
+                <li onclick="MoveToMenu('Introduce')">INTRODUCE</li>
+                <li onclick="MoveToMenu('Gallery')">GALLERY</li>
+                <li onclick="MoveToMenu('Guestbook')">GUEST BOOK</li>
+            </ul>
+
+        </div>
+    </header>
+
+    <!-- header아래부터 main부분 -->
+    <main id="main-content">
+
+        <!-- ImageSlide 시작 -->
+        <div class="ImageSlide" id="ImageSlide">
+            <img class="Slides" src="./img/slideImage/img1.PNG" width="674px" height="384px">
+            <img class="Slides" src="./img/slideImage/img2.PNG" width="674px" height="384px">
+            <img class="Slides" src="./img/slideImage/img3.JPG" width="674px" height="384px">
+            <img class="Slides" src="./img/slideImage/img4.JPG" width="674px" height="384px">
+            <img class="Slides" src="./img/slideImage/img5.JPG" width="674px" height="384px">
+            <!-- ImageSlide 좌 우 슬라이드 버튼 -->
+            <div id="slideButton">
+                <button onclick="plusDivs(-1)"><img src= "./img/slide_button/left.gif"></button>
+                <button onclick="plusDivs(1)"><img src= "./img/slide_button/right.gif"></button>
+            </div>
+            <!-- Image를 select해서 사진들을 옮겨 갈 수 있는 부분 -->
+            <div class="photoSelect">
+                <button class="photoButton" onclick="currentDiv(1)"></button>
+                <button class="photoButton" onclick="currentDiv(2)"></button>
+                <button class="photoButton" onclick="currentDiv(3)"></button>
+                <button class="photoButton" onclick="currentDiv(4)"></button>
+                <button class="photoButton" onclick="currentDiv(5)"></button>
+            </div>
+        </div>
+
+        <!-- Introduce 부분 시작 -->
+        <div class="Introduce" id="Introduce">
+            <!-- Table을 통한 구현 -->
+            <table id=introduceTable>
+                <thead id=tableHead>
+                    <tr>
+                        <th colspan="2"><img id="hearthStone" src="./img/topImg.png" </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <h1>놀랄 만큼 쉽고,<br> 믿기 힘들 만큼 재미있습니다!</h1></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4" width="50%"><img id="introImage" src="./img/MainImage.png"></td>
+                        <td>
+                            <p class="emp">칼을 내려놓고 카드를 뽑으세요!</p> 하스스톤은 여러분이 직접 워크래프트의 영웅이 되어 빠른 속도로 펼쳐지는 치열한 전략 대결에 뛰어드는 카드 게임입니다.
+                            <p id="under"> 몇 분 동안만 하스스톤과 함께하면 강력한 카드를 내서 주문을 시전하고, 하수인을 소환하고, 계속해서 변화하는 전장을 지배하는 영웅이 될 수 있습니다.</p> 카드 게임이 처음이세요? 오랫동안 솜씨를 길러온 전문가신가요? 누구나 하스스톤의 깊이와 매력에 빠져들게 되실 겁니다!</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p class="emp">지금 바로 전투가 시작됩니다</p> 간단하고 재미있는 임무를 통해 지금 즉시 하스스톤의 묘미를 맛볼 수 있습니다.</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p class="emp">자신만의 덱을 구성하세요</p> 수백 장의 추가 카드를 획득하고 제작하세요. 카드 덱도 여러분과 함께 성장합니다.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="emp">실력을 갈고 닦으세요</p> 컴퓨터가 조종하는 워크래프트의 영웅들을 상대로 연습 경기를 펼치세요. 스랄과 우서, 굴단까지 모두 하스스톤을 찾아왔습니다!</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div id="chartdiv"></div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <a href="http://kr.blizzard.com/ko-kr/">BLIZZARD</a>
+                            <a href="http://kr.battle.net/hearthstone/ko/">HearthStone</a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- Gallery 부분 시작 -->
+        <div class="Gallery" id="Gallery">
+            <!-- Image들이 들어갈 div -->
+            <div id="myGallery">
+                <!-- 각각 Image를 싸고 있는 div -->
+                <div class="column" id="column1">
+                    <!-- 이미지를 제거 할 수 있는 close 버튼 -->
+                    <button class="close" onclick="deleteImage(this); ImagelocalStorage(this)"><img src= "./img/modal_button/x.PNG"></button>
+                    <img src="./img/Image/Image1.JPG" onclick="openModal(); currentSlide(this)" class="galleryImg" width="300" height="200">
+                    <!-- text가 들어갈 div -->
+                    <div class="middle">
+                        <div class="text">운고로를 <br> 향한 여정</div>
+                    </div>
+                </div>
+                <div class="column" id="column2">
+                    <button class="close" onclick="deleteImage(this); ImagelocalStorage(this)"><img src= "./img/modal_button/x.PNG"></button>
+                    <img src="./img/Image/Image2.JPG" onclick="openModal();currentSlide(this)" class="galleryImg" width="300" height="200">
+                    <div class="middle">
+                        <div class="text">비열한 거리의<br> 가젯잔</div>
+                    </div>
+                </div>
+                <div class="column" id="column3">
+                    <button class="close" onclick="deleteImage(this); ImagelocalStorage(this)"><img src= "./img/modal_button/x.PNG"></button>
+                    <img src="./img/Image/Image3.JPG" onclick="openModal();currentSlide(this)" class="galleryImg" width="300" height="200">
+                    <div class="middle">
+                        <div class="text">한여름 밤의<br> 카라잔</div>
+                    </div>
+                </div>
+                <div class="column" id="column4">
+                    <button class="close" onclick="deleteImage(this); ImagelocalStorage(this)"><img src= "./img/modal_button/x.PNG"></button>
+                    <img src="./img/Image/Image4.JPG" onclick="openModal(); currentSlide(this)" class="galleryImg" width="300" height="200">
+                    <div class="middle">
+                        <div class="text">고대 신의 <br>속삭임</div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal창 구현 -->
+            <div id="myModal" class="modal">
+
+                <div class="modal-content" id="modal-content" onclick="closeModal()">
+                    <!-- modal창의 Image -->
+                    <div class="modalSlide" id="gs1">
+                        <img src="./img/Image/Image1.JPG" style="width:100%">
+                    </div>
+
+                    <div class="modalSlide" id="gs2">
+                        <img src="./img/Image/Image2.JPG" style="width:100%">
+                    </div>
+
+                    <div class="modalSlide" id="gs3">
+                        <img src="./img/Image/Image3.JPG" style="width:100%">
+                    </div>
+
+                    <div class="modalSlide" id="gs4">
+                        <img src="./img/Image/Image4.JPG" style="width:100%">
+                    </div>
+                    <!-- modal창의 왼쪽 오른쪽 화살표 -->
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+        </div>
+
+
+        <!-- Guestbook 부분 시작 -->
+        <div class="Guestbook" id="Guestbook">
+            <!-- 방명록이 등록 되었을 경우 tr td가 추가 될 table -->
+            <table id="registerPost">
+            </table>
+            <!-- 방명록을 등록 할 수 있도록 만들어진 table -->
+            <table class="guestTable">
+                <thead>
+                    <tr>
+                        <th colspan="2">방 명 록</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td width="50px">작성자</td>
+                        <td><input type="text" name="writer" id="writer"></td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td><input type="text" name="contents" id="contents"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <!-- 방명록을 등록하는 버튼 -->
+                        <td colspan="2"><button onclick="addPost()">등록</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+
+    </main>
+
+    <footer>
+        <!-- 개인정보 footer -->
+        <p>posted by <b id="belong">ChungNam Univ</b>, <b id="number">201302387</b>, jinhyeokKim, persona5173@gmail.com</p>
+    </footer>
+
+</body>
+
+</html>

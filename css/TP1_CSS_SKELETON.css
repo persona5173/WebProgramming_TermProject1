@@ -1,0 +1,623 @@
+@CHARSET "UTF-8";
+
+/*전체 table에 기본적으로 준 css*/
+
+table {
+    /*margin-left: auto;
+  margin-right: auto;*/
+    margin-top: 25px;
+    border-spacing: 10px;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+
+/*page full screen start*/
+
+header {
+    position: fixed;
+    /*menu bar fixed*/
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+}
+
+body {
+    margin: 25px;
+    background-image: url('./cssImg/background.PNG');
+    background-size: cover;
+}
+
+
+/*page full screen end*/
+
+
+/*Chart.js를 이용하여 introduce 추가구현*/
+
+#chartdiv {
+    width: 100%;
+    height: 500px;
+}
+
+
+/* Menu bar Start */
+
+div.Bar {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid #ccc;
+    /*메뉴바 배경화면*/
+    background-image: url('./cssImg/menubar.png');
+    background-size: cover;
+}
+
+div.Bar button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    cursor: pointer;
+    /*pointer fingerStyle*/
+    color: #fcd144;
+    font-family: Sans-Serif;
+    font-weight: bold;
+}
+
+
+/*Menu bar hover start*/
+
+div.Bar button:hover {
+    background-color: #6D1004;
+    color: #FFFFFF;
+}
+
+
+/*Menu bar hover End*/
+
+
+/*dropdown 버튼 크기*/
+
+#dropdown {
+    width: 25px;
+    height: 25px;
+}
+
+
+/*dropdown csss구현*/
+
+.Dropdown-list {
+    display: none;
+    position: absolute;
+    width: 130px;
+    color: #fcd144;
+    background-color: #90140A;
+    border: 3px solid #E3A565;
+    font-family: Sans-Serif;
+    font-weight: bold;
+    right: 10px;
+    overflow: hiden;
+    padding-left: 20px;
+    margin-top: 59px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+/*dropdown에 hover시 효과*/
+
+.Dropdown-list li:hover {
+    background-color: #6D1004;
+    color: #FFFFFF;
+}
+
+
+/*dropdown이 보이고 안보이게 하는 역할*/
+
+.show {
+    display: block;
+}
+
+
+/* Menu bar End */
+
+
+/*----------------------header end---------------------------------*/
+
+
+/* Main Start */
+
+
+/*header의 반응형에 따른 margin차이*/
+
+#main-content {
+    /*for menu bar Margin*/
+    width: 100%;
+    margin-top: 59px;
+}
+
+@media screen and ( max-width: 687px) {
+    #main-content {
+        margin-top: 107px;
+    }
+    .Dropdown-list {
+        margin-top: 107px;
+    }
+}
+
+
+/*ImageSlide와 Gallery 틀*/
+
+div.ImageSlide, div.Gallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    outline: none;
+    width: 100%;
+    height: 384px;
+    overflow: hidden;
+}
+
+
+/*ImageSlide 배경화면*/
+
+div.ImageSlide {
+    background-image: url('./cssImg/ImgSlide_background.png');
+    background-size: cover;
+}
+
+
+/*Introduce와 Guestbook 틀*/
+
+div.Introduce, div .Guestbook {
+    display: flex;
+    position: relative;
+    background-color: rgba( 255, 255, 255, 0);
+    outline: none;
+    width: 100%;
+}
+
+
+/*Guestbook 배경화면*/
+
+.Guestbook {
+    background-image: url("./cssImg/guestImage.png");
+    background-size: cover;
+}
+
+
+/* Main End */
+
+
+/* Footer Start */
+
+footer {
+    display: block;
+    text-align: center;
+}
+
+
+/*소속 꾸미기*/
+
+#belong {
+    font-weight: bold;
+    color: #828212;
+    text-shadow: #7DB5ED 0px 0px 10px;
+    text-shadow: #7DB5ED 0px 0px 10px 10px;
+    text-decoration: underline;
+}
+
+
+/*학번 꾸미기*/
+
+#number {
+    color: black;
+    text-shadow: skyblue 0px 2px, skyblue 2px 0px, skyblue -2px 0px, skyblue 0px -2px, skyblue -1.4px -1.4px, skyblue 1.4px 1.4px, skyblue 1.4px -1.4px, skyblue -1.4px 1.4px;
+}
+
+
+/* Footer End */
+
+
+/*----------------------------ImageSlide Part CSS Start---------------------------------*/
+
+
+/*img Slide의 크기*/
+
+.Slides {
+    margin: auto;
+    max-width: 674px;
+    width: 100%;
+    display: block;
+}
+
+
+/*slideButton Start*/
+
+
+/*slideButton Div*/
+
+#slideButton {
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+}
+
+
+/*slideButton background Transparency*/
+
+#slideButton button {
+    border: none;
+    background-color: rgba( 255, 255, 255, 0);
+}
+
+
+/*Slide ButtonSize*/
+
+#slideButton button img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*left SlideButton*/
+
+#slideButton button:nth-of-type(1) {
+    float: left;
+}
+
+
+/*right SlideButton*/
+
+#slideButton button:nth-of-type(2) {
+    float: right;
+}
+
+
+/*slideButton End*/
+
+
+/*image select하는 버튼이 들어갈 div에 대한 css*/
+
+.photoSelect {
+    z-index: 1;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+
+/*image button에 관한 css*/
+
+.photoButton {
+    width: 15px;
+    height: 15px;
+    background: #304E73;
+    border: none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/*image button이 select된 경우 css*/
+
+.photoButton_black {
+    width: 15px;
+    height: 15px;
+    background: #5AFEFE;
+    border: none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/*imagebutton에 hover했을 때 css*/
+
+div.photoSelect button:hover {
+    background-color: #5AFEFE;
+}
+
+
+/*--------------------------------ImageSlide Part CSS End------------------------------*/
+
+
+/*----------------------------Introduce Part CSS Start---------------------------------*/
+
+
+/*table 틀 관련 css*/
+
+#introduceTable {
+    font-family: 바탕;
+    border: none;
+    text-align: center;
+    width: 100%;
+    height: 400px;
+}
+
+
+/*매 문단 첫줄*/
+
+.emp {
+    color: #233A7F;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+/*밑줄*/
+
+#under {
+    text-decoration: underline;
+}
+
+
+/*table의 글씨 크기를 키움*/
+
+table#introuceTable tbody tr td {
+    font-size: 2em;
+}
+
+
+/*footer 링크에 손가락 모양 생기게*/
+
+table#introduceTable tfoot tr td {
+    cursor: pointer;
+}
+
+
+/*hover시 색 빨간색, 손가락 모양*/
+
+table#introduceTable tfoot tr td a:hover {
+    color: red;
+    cursor: pointer;
+}
+
+
+/*tablehead의 배경이미지*/
+
+#tableHead {
+    background-image: url(./cssImg/introduceImage.png);
+    background-size: cover;
+    color: white;
+}
+
+
+/*hearthstone 로고*/
+
+#introImage {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*chart.js의 css*/
+
+#chartdiv {
+    width: 99.9%;
+    height: 500px;
+}
+
+
+/*----------------------------Introduce Part CSS End---------------------------------*/
+
+
+/*----------------------------Gallery Part CSS Start---------------------------------*/
+
+
+/*Gallery들이 담길 기본적인 틀*/
+
+#myGallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: rgba( 255, 255, 255, 0);
+    outline: none;
+    width: 100%;
+    height: 384px;
+    overflow: hidden;
+}
+
+
+/*각각의 image들이 담겨있는 column*/
+
+.column {
+    height: 100%;
+    position: relative;
+    padding: 0 6px;
+    float: left;
+}
+
+
+/*갤러리 image*/
+
+div.Gallery img {
+    width: 99.9%;
+    height: auto;
+}
+
+
+/* Modal창 */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #191919;
+}
+
+
+/* Modal 내부 */
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+}
+
+
+/* Close Button css */
+
+.close {
+    background-color: rgba( 255, 255, 255, 0);
+    position: relative;
+    top: 15px;
+    right: 15px;
+    border: none;
+}
+
+.close:hover, .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*prev, next 위치 구현*/
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.galleryImg {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+
+/*text가 들어가는 위치*/
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+
+/*평소에 middle 투명하지만 mouse hover시 1*/
+
+.middle {
+    opacity: 0;
+}
+
+.column:hover .middle {
+    opacity: 1;
+}
+
+
+/*text 부분 css*/
+
+.text {
+    background-color: black;
+    color: #CE5FD7;
+    font-family: Gungsuh;
+    font-weight: bold;
+}
+
+
+/*column에 마우스 hover시 투명도*/
+
+.column:hover .galleryImg {
+    opacity: 0.5;
+}
+
+
+/*----------------------------Gallery Part CSS End---------------------------------*/
+
+
+/*----------------------------GuestBook Part CSS Start---------------------------------*/
+
+
+/*방명록 배경 image*/
+
+#registerPost {
+    background-image: url("./cssImg/background.PNG");
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*방명록 배경 image와 text 정렬*/
+
+.guestTable {
+    background-image: url("./cssImg/background.PNG");
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 25px;
+    border-spacing: 10px;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+
+/*table에 border값 적용*/
+
+table.guestTable th, table.guestTable td {
+    border: 1px solid #bcbcbc;
+}
+
+table#registerPost th, table#registerPost td {
+    border: 1px solid #bcbcbc;
+}
+
+
+/*좌측 정렬*/
+
+#replyButton {
+    text-align: left;
+}
+
+
+/*----------------------------GuestBook Part CSS End---------------------------------*/
